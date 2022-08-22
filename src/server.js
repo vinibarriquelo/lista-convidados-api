@@ -4,8 +4,9 @@ import { userRouter } from "./routes/userRoutes.js";
 import { tableRouter } from './routes/tableRoutes.js';
 import { guestRouter } from './routes/guestRoutes.js';
 import connect from "./db/connect.js";
-
 import cors from 'cors';
+
+const port = process.env.PORT || 3000;
 
 const app = express();
 app.use(express.json());
@@ -21,4 +22,4 @@ app.use('/guest', guestRouter);
 
 // Conecta ao mongoDB.
 connect();
-app.listen(3000, () => console.log(`Server rodando em: http://localhost:3000`));
+app.listen(port, () => console.log(`Server Started`));
